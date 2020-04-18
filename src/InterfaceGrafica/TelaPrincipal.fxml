@@ -21,15 +21,15 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Ocorrências">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Adicionar Observação" />
-                        <MenuItem mnemonicParsing="false" text="Adicionar Advertência" />
-                        <MenuItem mnemonicParsing="false" text="Adicionar Sinistro" />
+                    <MenuItem fx:id="menuItemObservacao" mnemonicParsing="false" onAction="#onMenuItemObservacaoAction" text="Adicionar Observação" />
+                        <MenuItem fx:id="menuItemAdvertencia" mnemonicParsing="false" onAction="#onMenuItemAdvertenciaAction" text="Adicionar Advertência" />
+                        <MenuItem fx:id="menuItemSinistro" mnemonicParsing="false" onAction="#onMenuItemSinistroAction" text="Adicionar Sinistro" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Verificar Veiculos">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Consultar Veiculo" />
-                        <MenuItem mnemonicParsing="false" text="Status do Estaciomento" />
+                    <MenuItem fx:id="menuItemConsultarVeiculo" mnemonicParsing="false" onAction="#onMenuItemConsultarVeiculoAction" text="Consultar Veiculo" />
+                        <MenuItem fx:id="menuItemStatusEstacionamento" mnemonicParsing="false" onAction="#onMenuItemStatusEstacionamentoAction" text="Status do Estaciomento" />
                   </items>
                 </Menu>
                   <Menu mnemonicParsing="false" text="Cadastrar Eventos">
@@ -41,15 +41,15 @@
                   </Menu>
                   <Menu mnemonicParsing="false" text="Relatorios">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Relatorio Diario" />
-                        <MenuItem mnemonicParsing="false" text="Relatorio Mensal" />
-                        <MenuItem mnemonicParsing="false" text="Relatorio Anual" />
+                        <MenuItem fx:id="menuItemRelatorioDiario" mnemonicParsing="false" onAction="#onMenuItemRelatorioDiarioAction" text="Relatorio Diario" />
+                        <MenuItem fx:id="menuItemRelatorioMensal" mnemonicParsing="false" onAction="#onMenuItemRelatorioMensalAction" text="Relatorio Mensal" />
+                        <MenuItem fx:id="menuItemRelatorioAnual" mnemonicParsing="false" onAction="#onMenuItemRelatorioAnualAction" text="Relatorio Anual" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Help!">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Suporte" />
-                        <MenuItem mnemonicParsing="false" text="Sair" />
+                        <MenuItem fx:id="menuItemSuporte" mnemonicParsing="false" onAction="#onMenuItemSuporteAction" text="Suporte" />
+                        <MenuItem fx:id="menuItemSair" mnemonicParsing="false" onAction="#onMenuItemSairAction" text="Sair" />
                      </items>
                   </Menu>
               </menus>
