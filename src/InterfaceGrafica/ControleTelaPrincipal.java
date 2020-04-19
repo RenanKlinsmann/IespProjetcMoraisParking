@@ -3,6 +3,7 @@ package InterfaceGrafica;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
 
 import InterfaceGrafica.util.Alerts;
 import application.Main;
@@ -29,17 +30,17 @@ public class ControleTelaPrincipal implements Initializable {
 
 	@FXML
 	public void onMenuItemAlunoAction() {
-		loadView("/InterfaceGrafica/VeiculoList.fxml");
+		loadView("/InterfaceGrafica/VeiculoList.fxml", x -> {} );
 	}
 
 	@FXML
 	public void onMenuItemVisitanteAction() {
-		loadView("/InterfaceGrafica/VeiculoList.fxml");
+		loadView("/InterfaceGrafica/VeiculoList.fxml", x -> {});
 	}
 
 	@FXML
 	public void onMenuItemFuncionarioAction() {
-		loadView("/InterfaceGrafica/VeiculoList.fxml");
+		loadView("/InterfaceGrafica/VeiculoList.fxml", x -> {});
 	}
 
 	@Override
@@ -74,7 +75,10 @@ public class ControleTelaPrincipal implements Initializable {
 
 	@FXML
 	public void onMenuItemConsultarVeiculoAction() {
-		loadView2("/InterfaceGrafica/VeiculoList.fxml");
+		loadView("/InterfaceGrafica/VeiculoList.fxml",  (VeiculoListController controller) -> {
+			controller.setVeiculoServicos(new VeiculoServicos());
+			controller.updateTableView();
+		});
 	}
 
 	@FXML
@@ -136,7 +140,7 @@ public class ControleTelaPrincipal implements Initializable {
 	public void onMenuItemSairAction() {
 	}
 
-	private synchronized void loadView(String absoluteName) {
+	private synchronized <T> void loadView(String absoluteName, Consumer<T> acaoDeInicializacao ) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
 			VBox newVBox = loader.load();
@@ -148,38 +152,13 @@ public class ControleTelaPrincipal implements Initializable {
 			mainVBox.getChildren().clear();
 			mainVBox.getChildren().add(mainMenu);
 			mainVBox.getChildren().addAll(newVBox.getChildren());
+			
+			T controller = loader.getController();
+			acaoDeInicializacao.accept(controller);
 
 		} catch (IOException e) {
 			Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), AlertType.ERROR);
 		}
-	}
-
-	private synchronized void loadView2(String absoluteName) {
-
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
-			VBox newVBox = loader.load();
-
-			Scene mainScene = Main.getMainScene();
-			VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
-
-			Node mainMenu = mainVBox.getChildren().get(0);
-			mainVBox.getChildren().clear();
-			mainVBox.getChildren().add(mainMenu);
-			mainVBox.getChildren().addAll(newVBox.getChildren());
-
-			VeiculoListController controller = loader.getController();
-			controller.setVeiculoServicos(new VeiculoServicos());
-			controller.updateTableView();
-
-		}
-
-		catch (IOException e) {
-
-			Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), AlertType.ERROR);
-
-		}
-
 	}
 
 }

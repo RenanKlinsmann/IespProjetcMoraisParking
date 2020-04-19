@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Veiculo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	private Integer id;
 	private String placa;
 	private String modelo;
 	private String cor;
@@ -13,13 +14,22 @@ public class Veiculo implements Serializable {
 	public Veiculo() {
 	}
 
-	public Veiculo(String placa, String modelo, String cor, String ano) {
+	public Veiculo(Integer id, String placa, String modelo, String cor, String ano) {
+		this.id = id;
 		this.placa = placa;
 		this.modelo = modelo;
 		this.cor = cor;
 		this.ano = ano;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	public String getPlaca() {
 		return placa;
 	}
@@ -52,13 +62,14 @@ public class Veiculo implements Serializable {
 		this.ano = ano;
 	}
 
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((placa == null) ? 0 : placa.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
-
 	}
 
 	@Override
@@ -69,24 +80,21 @@ public class Veiculo implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		
 		Veiculo other = (Veiculo) obj;
-		if (placa == null) {
-			if (other.placa != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} 
-		else if (!placa.equals(other.placa))
-
+		} else if (!id.equals(other.id))
 			return false;
-
 		return true;
-
 	}
 
 	@Override
 	public String toString() {
-		return "Veiculo [placa=" + placa + ", modelo=" + modelo + ", cor=" + cor + ", ano=" + ano + "]";
+		return "Veiculo [id=" + id + ", placa=" + placa + ", modelo=" + modelo + ", cor=" + cor + ", ano=" + ano + "]";
 	}
+
+	
 
 	
 	
