@@ -1,6 +1,6 @@
 # IespProjetcMoraisParking
 Projeto Valendo a Segunda Nota na materia Linguagem de progamação ||
-Projeto consiste na jução de inface grafica com javaFX, orientação a objetos e conexão JDBC com MySQL, projeto ainda esta em fase de construção,
+Projeto consiste na jução de interface grafica com javaFX, orientação a objetos e conexão JDBC com MySQL, projeto ainda esta em fase de construção,
 pois no momento estou sem computador para conclusão mais pretendo concluir assim que comprar uma nova maquina,
 todo o projeto esta dividido em pacotes e sub-pacotes bem definidos, as entidades pricipais Aluno, Veiculos, Funcionario e Visitantes estão com o mesmo padrão,
 atributos, contrutores, getters e setters, HashCode equals so para o Id e ToString, tem uma classe especifica de conexão ao banco, 
